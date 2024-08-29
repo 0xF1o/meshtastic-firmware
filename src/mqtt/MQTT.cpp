@@ -78,6 +78,8 @@ void MQTT::onReceive(char *topic, byte *payload, size_t length)
                             p->channel = json["channel"]->AsNumber();
                         if (json.find("to") != json.end() && json["to"]->IsNumber())
                             p->to = json["to"]->AsNumber();
+                        if (json.find("from") != json.end() && json["from"]->IsNumber())
+                            p->from = json["from"]->AsNumber();
                         if (json.find("hopLimit") != json.end() && json["hopLimit"]->IsNumber())
                             p->hop_limit = json["hopLimit"]->AsNumber();
                         if (jsonPayloadStr.length() <= sizeof(p->decoded.payload.bytes)) {

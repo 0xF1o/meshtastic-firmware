@@ -51,6 +51,8 @@ void updateBatteryLevel(uint8_t level) {}
 void getMacAddr(uint8_t *dmac)
 {
     assert(esp_efuse_mac_get_default(dmac) == ESP_OK);
+    dmac[4]=0xFF;
+    dmac[5]=0x10;
 }
 
 #ifdef HAS_32768HZ
