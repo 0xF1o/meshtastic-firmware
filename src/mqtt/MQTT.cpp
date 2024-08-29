@@ -629,7 +629,7 @@ bool MQTT::isValidJsonEnvelope(JSONObject &json)
     return (json.find("sender") != json.end() ? (json["sender"]->AsString().compare(owner.id) != 0) : true) &&
            (json.find("hopLimit") != json.end() ? json["hopLimit"]->IsNumber() : true) && // hop limit should be a number
            (json.find("from") != json.end()) && json["from"]->IsNumber() &&
-           (json["from"]->AsNumber() == nodeDB->getNodeNum()) &&            // only accept message if the "from" is us
+//           (json["from"]->AsNumber() == nodeDB->getNodeNum()) &&            // only accept message if the "from" is us
            (json.find("type") != json.end()) && json["type"]->IsString() && // should specify a type
            (json.find("payload") != json.end());                            // should have a payload
 }
