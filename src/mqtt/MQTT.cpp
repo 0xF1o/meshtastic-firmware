@@ -83,7 +83,7 @@ void MQTT::onReceive(char *topic, byte *payload, size_t length)
                         if (jsonPayloadStr.length() <= sizeof(p->decoded.payload.bytes)) {
                             memcpy(p->decoded.payload.bytes, jsonPayloadStr.c_str(), jsonPayloadStr.length());
                             p->decoded.payload.size = jsonPayloadStr.length();
-                            service->sendToMesh(p, RX_SRC_LOCAL);
+                            service->sendToMesh(p, RX_SRC_RADIO);
                         } else {
                             LOG_WARN("Received MQTT json payload too long, dropping\n");
                         }
