@@ -100,7 +100,7 @@ int32_t PaxcounterModule::runOnce()
             libpax_counter_init(handlePaxCounterReportRequest, &count_from_libpax,
                                 Default::getConfiguredOrDefault(moduleConfig.paxcounter.paxcounter_update_interval,
                                                                 default_telemetry_broadcast_interval_secs),
-                                0);
+                                1);
             libpax_counter_start();
         } else {
             sendInfo(NODENUM_BROADCAST);
